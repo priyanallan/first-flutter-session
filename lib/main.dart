@@ -1,32 +1,28 @@
 import 'package:flutter/material.dart';
+import 'screen.dart';
+import 'todo_list_route.dart';
 
 void main() => runApp(new MyFlutterApp());
 
-class MyFlutterApp extends StatelessWidget {
+class MyFlutterApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(
-            title: Text('Flutter App'),
-          ),
-          body: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('Some Text'),
-              RaisedButton(
-                color: Color(255),
-                child: Text('Click me'),
-                onPressed: () {
-                  print("You clicked the button");
-                },
-              ),
-            ],
-          )
-          )
+    return new MaterialApp(
+      title: 'Flutter Demo',
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: TodoListApp(),
+    );
+  }
+}
+
+class TodoListApp extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Screen(
+      title: 'Todo List',
+      body: TodoListRoute(),
     );
   }
 }
